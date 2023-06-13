@@ -28,7 +28,7 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT; //4000
 
 const server = app.listen(
   4000,
@@ -64,6 +64,7 @@ io.on("connection", (socket) => {
     var chat = NewMessageRecieved.chat;
 
     if (!chat.users) return console.log("chat.users not defined");
+    
 
     chat.users.forEach((user) => {
       if (user._id == NewMessageRecieved.sender._id) return;
